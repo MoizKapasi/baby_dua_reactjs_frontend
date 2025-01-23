@@ -8,7 +8,7 @@ export default function BabyAnnouncementsTable() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_ENDPOINT;
+    const API_URL = `${import.meta.env.VITE_API_ENDPOINT}/`;
 
     const fetchAnnouncements = async () => {
       try {
