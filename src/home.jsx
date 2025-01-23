@@ -25,7 +25,7 @@ export default function BabyAnnouncement() {
   const onSubmit = async (data) => {
     try {
       const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
-      const response = await fetch(apiEndpoint, {
+      const response = await fetch(`${apiEndpoint}/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
