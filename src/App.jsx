@@ -8,12 +8,12 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+  <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<BabyAnnouncementsTable />} />
       </Routes>
-    </>
+  </BrowserRouter>
   );
 }
 
