@@ -126,7 +126,7 @@ export default function BabyAnnouncement() {
                 <input
                   id="baby_name"
                   {...register("baby_name", {
-                    required: "This field is required",
+                    required: "Please fill baby's name",
                     validate: (value) => {
                       // Split the input by comma and trim whitespaces
                       const names = value.split(",").map((name) => name.trim());
