@@ -69,7 +69,7 @@ export default function BabyAnnouncement() {
           boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.5)", // Pink shadow
         }}
       >
-        <div className="absolute inset-0 overflow-hidden pt-1.5">
+        <div className="absolute inset-0 overflow-y-auto no-scrollbar pt-1.5">
           <div className="relative mt-4 sm:mt-2 text-center">
             <div className="flex justify-center items-center space-x-4 mb-4">
               <Gift className="w-6 sm:w-8 h-6 sm:h-8 text-pink-500 animate-bounce" />
