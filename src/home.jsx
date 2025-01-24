@@ -89,8 +89,7 @@ export default function BabyAnnouncement() {
                 boxShadow: "0px 4px 12px rgba(236, 72, 153, 0.3)",
               }}
             >
-              As we welcome the little bundle of joy into our home, we would
-              love for you to join in our happiness by guessing the name of our
+              As we welcome the little bundle of joy into our home, we would like you to join in our happiness by guessing the name of our
               little princess. 💕 Please fill out the form below to share your
               joy and wishes with us!
             </p>
