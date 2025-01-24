@@ -47,13 +47,21 @@ export default function BabyAnnouncement() {
     <div
       className="fixed inset-0 flex items-center justify-center bg-cover bg-center p-2 sm:p-6 md:p-8 overflow-hidden"
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `
+     linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+     url(${backgroundImage})
+   `,
+        backgroundBlendMode: "overlay",
       }}
     >
       <div
         className="w-full max-w-md p-4 sm:p-8 md:p-10 rounded-3xl shadow-3xl animate-fade-in-up justify-between relative overflow-hidden"
         style={{
-          backgroundImage: `url(${cardBackgroundImage})`,
+          backgroundImage: `
+          linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.5)), 
+          url(${cardBackgroundImage})
+        `,
+          backgroundBlendMode: "overlay",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "80vh",
@@ -61,7 +69,7 @@ export default function BabyAnnouncement() {
           boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.5)", // Pink shadow
         }}
       >
-        <div className="absolute inset-0 overflow-y-auto no-scrollbar p-1.5">
+        <div className="absolute inset-0 overflow-hidden pt-1.5">
           <div className="relative mt-4 sm:mt-2 text-center">
             <div className="flex justify-center items-center space-x-4 mb-4">
               <Gift className="w-6 sm:w-8 h-6 sm:h-8 text-pink-500 animate-bounce" />
@@ -89,7 +97,8 @@ export default function BabyAnnouncement() {
                 boxShadow: "0px 4px 12px rgba(236, 72, 153, 0.3)",
               }}
             >
-              As we welcome the little bundle of joy into our home, we would like you to join in our happiness by guessing the name of our
+              As we welcome the little bundle of joy into our home, we would
+              love for you to join in our happiness by guessing the name of our
               little princess. 💕 Please fill out the form below to share your
               joy and wishes with us!
             </p>
@@ -102,13 +111,13 @@ export default function BabyAnnouncement() {
                 <input
                   id="your_name"
                   {...register("your_name", {
-                    required: "This field is required",
+                    required: "Please fill your name",
                   })}
-                  placeholder="Who's sharing this beautiful moment(your name)? 💕"
+                  placeholder="Who's sharing this beautiful moment? 💕"
                   className="w-full px-10 py-3 text-sm sm:text-base border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white text-gray-800"
                 />
                 {errors.your_name && (
-                  <p className="text-red-500 text-sm font-semibold mt-1">
+                  <p className="text-red-500 text-sm font-semibold mt-0.5">
                     {errors.your_name.message}
                   </p>
                 )}
@@ -119,12 +128,22 @@ export default function BabyAnnouncement() {
                   id="baby_name"
                   {...register("baby_name", {
                     required: "This field is required",
+                    validate: (value) => {
+                      // Split the input by comma and trim whitespaces
+                      const names = value.split(",").map((name) => name.trim());
+
+                      // Check if there's only one name and no spaces within the name
+                      return (
+                        (names.length === 1 && names[0].indexOf(" ") === -1) ||
+                        "Please enter only one name"
+                      );
+                    },
                   })}
-                  placeholder="What's the precious little one's name? 👶"
+                  placeholder="What's the little one's name? 👶"
                   className="w-full px-10 py-3 text-sm sm:text-base border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-800"
                 />
                 {errors.baby_name && (
-                  <p className="text-red-500 font-semibold text-sm mt-1">
+                  <p className="text-red-500 font-semibold text-sm mt-0.5">
                     {errors.baby_name.message}
                   </p>
                 )}
@@ -134,11 +153,11 @@ export default function BabyAnnouncement() {
                 <textarea
                   id="dua"
                   {...register("dua")}
-                  placeholder="A heartfelt prayer or wish for the newborn? 🤲"
+                  placeholder="A heartfelt prayer or wish for the baby? 🤲"
                   className="w-full px-10 py-3 text-sm sm:text-base border border-green-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none h-24 sm:h-28 bg-white text-gray-800"
                 />
                 {errors.dua && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm mt-0.5">
                     {errors.dua.message}
                   </p>
                 )}
