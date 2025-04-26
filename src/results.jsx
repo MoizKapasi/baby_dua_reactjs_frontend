@@ -109,6 +109,18 @@ export default function BabyAnnouncementsTable() {
               </tbody>
             </table>
           </div>
+
+          {/* Very Subtle Footer */}
+          <div className="mt-4">
+            <a
+              href="https://moiz-kapasi-delta-60.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-gray-600 text-xs"
+            >
+              Developed with ❤️ by Moiz Kapasi
+            </a>
+          </div>
         </div>
       </div>
     </div>
