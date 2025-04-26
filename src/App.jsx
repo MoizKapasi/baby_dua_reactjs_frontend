@@ -5,8 +5,6 @@ import Home from "./home";
 import BabyAnnouncementsTable from "./results";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
